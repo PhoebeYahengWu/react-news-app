@@ -13,17 +13,10 @@ class News extends Component {
 
 
     componentDidMount() {
-        axios({
-            'method': 'GET',
-            'url': `https://newsapi.org/v2/everything?q=bitcoin&from=2020-07-01&sortBy=publishedAt&apiKey=464a3f64e749479ca2604d774c97c5ca`,
-            'headers': {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(res => this.setState({
-            news: res.data.articles
+        axios.get(`https://newsapi.org/v2/everything?q=bitcoin&from=2020-07-01&sortBy=publishedAt&apiKey=464a3f64e749479ca2604d774c97c5ca`)
+            .then(res => this.setState({
+                news: res.data.articles
         }))
-        .catch(err => console.log(err));
       }
 
     renderItems() {
