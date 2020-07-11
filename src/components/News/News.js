@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NewSingle from './NewSingle';
+import axios from 'axios';
 
 
 class News extends Component {
@@ -10,20 +11,21 @@ class News extends Component {
         }
     }
 
-    componentDidMount() {                                          
-        const url = `http://newsapi.org/v2/everything?q=bitcoin&from=2020-07-01&sortBy=publishedAt&apiKey=464a3f64e749479ca2604d774c97c5ca`;
 
-        fetch(url)
-        .then((response) => {
-            return response.json();
+    componentDidMount() {
+        axios({
+            'method': 'GET',
+            'url': `http://newsapi.org/v2/everything?q=bitcoin&from=2020-07-01&sortBy=publishedAt&apiKey=${process.env.REACT_APP_BITCOIN_API_KEY}`,
+            'headers': {
+                'Content-Type': 'application/json'
+            }
         })
-        .then((data) => {
-            this.setState({
-                news: data.articles 
-            }) 
-        })
-        .catch((error) => console.log(error));
-    }
+        .then(res => this.setState({
+            news: res.data.articles
+        }))
+        .catch(err => console.log(err));
+      }
+
     renderItems() {
         return this.state.news.map((item) => (
             <NewSingle key={item.url} item={item} /> 
