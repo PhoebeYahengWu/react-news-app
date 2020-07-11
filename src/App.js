@@ -7,7 +7,7 @@ function App() {
     <div className="App">
     <nav>
     <div className="nav-wrapper #546e7a blue-grey darken-1">
-      <a href="/" className="brand-logo center">Bitcoin Latest News</a>
+      <a style={{fontSize:"1.6rem"}} href="/" className="brand-logo center">Bitcoin News</a>
     </div>
     </nav>
       <News />
