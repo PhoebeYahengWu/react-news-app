@@ -1,7 +1,7 @@
 import React from 'react';
 
 const NewSingle = ({item}) => (
-    <div className="col s12 m4 l3">
+    <div className="col s12 m4 l4">
         <div className="card">
         <div className="card-image">
             <img src={item.urlToImage} alt={item.title}/>
@@ -9,7 +9,10 @@ const NewSingle = ({item}) => (
         </div>
 
         <div className="card-content">
-            <p>{item.title}</p>
+            <p style={{fontSize:"1.4rem"}}><strong>{item.title}</strong></p>
+            <p>By {item.author} {item.publishedAt.substring(0, 10)}</p>
+            {/* <br/> */}
+            {/* <p>{item.content}</p> */}
         </div>
 
         <div className="card-action">
