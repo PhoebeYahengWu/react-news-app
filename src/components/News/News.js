@@ -15,7 +15,7 @@ class News extends Component {
     componentDidMount() {
         axios({
             'method': 'GET',
-            'url': `https://newsapi.org/v2/everything?q=bitcoin&from=2020-07-01&sortBy=publishedAt&apiKey=${process.env.REACT_APP_BITCOIN_API_KEY}`,
+            'url': `https://newsapi.org/v2/everything?q=bitcoin&from=2020-07-01&sortBy=publishedAt&apiKey=464a3f64e749479ca2604d774c97c5ca`,
             'headers': {
                 'Content-Type': 'application/json'
             }
